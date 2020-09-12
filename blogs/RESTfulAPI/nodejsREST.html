@@ -43,6 +43,7 @@
 									<p>
 										Create a <b>RESTful API using NodeJS and MongoDB</b>. <b>Node.js</b> is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser.
 									</p>
+									<hr class="major" />
 									<h2>Getting started</h2>
 									<h3>Prerequisites:</h3>
 									<div class="table-wrapper">
@@ -63,7 +64,7 @@
 										</table>
 									</div>
 									<p>First, check out the environment setup to ensure everything works perfectly. Run <i><b>npm -v</b></i> and <i><b>mongo --version</b></i> to check the libraries are installed in your machine.</p>
-									<hr class="major" />
+
 									<h3>Description</h3>
 									<p>This application implements CRUD (create-read-update-delete) operation by HTTP methods (GET, POST, PUT, DELETE). The CRUD operation performs on three schemas (Professor, ResearchGroup and Student). Moreover, the professors can be searched by designation and research group name. Similarly, the students can be searched by research group name. The schemas are given below:</p>
 									<h4> Professor </h4>
@@ -177,7 +178,6 @@
 											</tbody>
 										</table>
 									</div>
-									<hr class="major" />
 									<p>CRUD operations on the schemas are given below:</p>
 									<h4> Professor </h4>
 									<div class="table-wrapper">
@@ -344,7 +344,6 @@
 										</table>
 									</div>
 									<p><b>NOTE:</b> (*) For GET requests, use the query string to pass the parameters.</p>
-									<hr class="major" />
 									<h3>File structure</h3>
 									<pre><code>
 nodejsREST
@@ -363,7 +362,6 @@ nodejsREST
 	|- researchGroupRoutes.js
 	|- studentRoutes.js
 </code></pre>
-									<hr class="major" />
 									<h3>Step by step procedure</h3>
 									<ul class="alt">
 										<ol>
@@ -382,7 +380,6 @@ nodejsREST
 											</li>
 										</ol>
 									</ul>
-									<hr class="major" />
 									<h3>Models definition</h3>
 									<p><i>nodejsREST/models/professor.js</i>: </p>
 									<pre><code>
@@ -462,7 +459,6 @@ var studentSchema = new schema({
 
 module.exports = mongoose.model('Student',studentSchema);
 </code></pre>
-									<hr class="major" />
 									<h3>Routes definition</h3>
 									<p><i>nodejsREST/routes/professorRoutes.js</i>: </p>
 									<pre><code>
@@ -524,7 +520,6 @@ var studentQuery = function(app) {
 
 module.exports = studentQuery;
 </code></pre>
-									<hr class="major" />
 									<h3>Controllers definition</h3>
 									<p><i>nodejsREST/controllers/professorController.js</i>: </p>
 									<pre><code>
@@ -823,7 +818,6 @@ exports.delete_a_student = function (req, res) {
     });
 };
 </code></pre>
-									<hr class="major" />
 									<h3>Server definition</h3>
 									<p><i>nodejsREST/server.js</i>: </p>
 									<pre><code>
@@ -874,7 +868,6 @@ app.listen(port);
 console.log('APP started... on port: ' + port);
 </code></pre>
 									<p><b>NOTE:</b> In database config section, <i>db</i> represents the name of the database.</p>
-									<hr class="major" />
 									<h3>To start and run the without reloading</h3>
 									<p>Check the mongo daemon is running background. To start the daemon, run <b>mongod</b>. To interact with the mongo shell, run <b>mongo shell</b>. Start the server running <b>npm start</b>.</p>
 									<pre><code>

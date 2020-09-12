@@ -43,6 +43,7 @@
 									<p>
 										<b>Containerize</b> a <b>RESTful API using Flask web developement framwork and MongoDB</b>. <b>Flask</b> is a micro web framework written in Python. <b>Docker</b> is used as the containerization tool.
 									</p>
+									<hr class="major" />
 									<h2>Getting started</h2>
 									<p>This article is the continuation of the flaskREST API application.</p>
 									<h3>Prerequisites:</h3>
@@ -84,7 +85,7 @@
 										</table>
 									</div>
 									<p>Install the prerequisites and run the command <b>pip freeze > requirements.txt</b> to list all the installed libraries in the python virtual environment. Run <i><b>mongo --version</b></i>, <i><b>docker -v</b></i> and <i><b>docker-compose -v</b></i> to check the libraries are installed in your machine.</p>
-									<hr class="major" />
+
 									<h3>File structure</h3>
 									<pre><code>
 flaskREST
@@ -97,7 +98,7 @@ flaskREST
 	|- models.py
 </code></pre>
 
-									<hr class="major" />
+
 									<h3>Dockerfile definition</h3>
 									<p><i>flaskREST/Dockerfile</i>: </p>
 									<pre><code>
@@ -112,7 +113,7 @@ CMD [ "flask", "run" ,"--host=0.0.0.0"]
 									<p>Build flaskbackend image, run <b>docker build -t flaskbackend:v2 .</b><br>
 									The dot (.) at the end of the docker build command to indicate the Dockerfile. To check the built image, run <b>docker images.</b>
 									</p>
-									<hr class="major" />
+
 									<h3>Docker-compose definition</h3>
 									<p><i>flaskREST/docker-compose.yaml</i>: </p>
 									<pre><code>

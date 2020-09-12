@@ -43,6 +43,7 @@
 									<p>
 										Create a <b>RESTful API using Flask web developement framwork and MongoDB</b>. <b>Flask</b> is a micro web framework written in Python.
 									</p>
+									<hr class="major" />
 									<h2>Getting started</h2>
 									<h3>Prerequisites:</h3>
 									<p> It is recommended to create virtual environment for the purpose of seperate project environment and clean code. To create python virtual environment in Linux and Windows platform, please follow the given <a href="https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/"> link</a>.
@@ -70,7 +71,6 @@
 											</tbody>
 										</table>
 									</div>
-									<hr class="major" />
 									<h3>Description</h3>
 									<p>This application implements CRUD (create-read-update-delete) operation by HTTP methods (GET, POST, PUT, DELETE). The CRUD operation performs on three schemas (Professor, ResearchGroup and Student). Moreover, the professors can be searched by designation and research group name. Similarly, the students can be searched by research group name. The schemas are given below:</p>
 									<h4> Professor </h4>
@@ -184,7 +184,6 @@
 											</tbody>
 										</table>
 									</div>
-									<hr class="major" />
 									<p>CRUD operations on the schemas are given below:</p>
 									<h4> Professor </h4>
 									<div class="table-wrapper">
@@ -351,7 +350,6 @@
 										</table>
 									</div>
 									<p><b>NOTE:</b> (*) For GET requests, use the query string to pass the parameters.</p>
-									<hr class="major" />
 
 									<h3>File structure</h3>
 									<pre><code>
@@ -361,9 +359,6 @@ flaskREST
 	|- db.py
 	|- models.py
 </code></pre>
-
-									<hr class="major" />
-
 									<h3>Database connection</h3>
 									<p>First, initialize mongoengine. <i>db.py</i>:</p>
 									<pre><code>
@@ -395,8 +390,6 @@ class Student(db.Document):
     studentNumber = db.StringField(max_length=20,required=True, unique=True)
     researchGroups = db.ListField(db.ReferenceField(ResearchGroup))
 </code></pre>
-
-									<hr class="major" />
 									<h3> CRUD operations on Professor, ResearchGroup and Student schema (app.py)</h3>
 									<pre><code>
 from flask import Flask, jsonify, request, Response
