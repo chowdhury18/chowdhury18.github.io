@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arnab Rahman Chowdhury</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.facebook.com/a.r.chowdhury.18/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/chowdhury_arnab_rahman/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://linkedin.com/in/archowdhury18" class="icon brands fa fa-linkedin"><span class="label">Linkedin</span></a></li>
+										<li><a href="https://github.com/chowdhury18" class="icon brands fab fa-github-square"><span class="label">Github</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Banner -->
+								<section>
+									<header class="main">
+										<h1>Containerize RESTful API using Flask and MongoDB</h1>
+									</header>
+
+									<span class="image main"><img src="../../images/docker-flask-mongodb.jpg" alt="" /></span>
+
+									<hr class="major" />
+									<h2>Objective</h2>
+									<p>
+										<b>Containerize</b> a <b>RESTful API using Flask web developement framwork and MongoDB</b>. <b>Flask</b> is a micro web framework written in Python. <b>Docker</b> is used as the containerization tool.
+									</p>
+									<h2>Getting started</h2>
+									<p>This article is the continuation of the flaskREST API application.</p>
+									<h3>Prerequisites:</h3>
+									<p> It is recommended to create virtual environment for the purpose of seperate project environment and clean code. To create python virtual environment in Linux and Windows platform, please follow the given <a href="https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/"> link</a>.
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Library</th>
+													<th>Command</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Flask</td>
+													<td>pip install flask</td>
+												</tr>
+												<tr>
+													<td>Flask-mongoengine</td>
+													<td>pip install flask-mongoengine</td>
+												</tr>
+												<tr>
+													<td>BSON</td>
+													<td>pip install bson</td>
+												</tr>
+												<tr>
+													<td>Docker</td>
+													<td>--</td>
+												</tr>
+												<tr>
+													<td>Docker-compose</td>
+													<td>--</td>
+												</tr>
+												<tr>
+													<td>MongoDB</td>
+													<td>--</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>Install the prerequisites and run the command <b>pip freeze > requirements.txt</b> to list all the installed libraries in the python virtual environment. Run <i><b>mongo --version</b></i>, <i><b>docker -v</b></i> and <i><b>docker-compose -v</b></i> to check the libraries are installed in your machine.</p>
+									<hr class="major" />
+									<h3>File structure</h3>
+									<pre><code>
+flaskREST
+|- app.py
+|- Dockerfile
+|- docker-compose.yaml
+|- requirements.txt
+|__database
+	|- db.py
+	|- models.py
+</code></pre>
+
+									<hr class="major" />
+									<h3>Dockerfile definition</h3>
+									<p><i>flaskREST/Dockerfile</i>: </p>
+									<pre><code>
+From python:3.8.5-alpine3.12
+WORKDIR /usr/app
+COPY requirement.txt ./
+RUN pip install -r ./requirement.txt
+COPY . .
+EXPOSE 5000
+CMD [ "flask", "run" ,"--host=0.0.0.0"]
+</code></pre>
+									<p>Build flaskbackend image, run <b>docker build -t flaskbackend:v2 .</b><br>
+									The dot (.) at the end of the docker build command to indicate the Dockerfile. To check the built image, run <b>docker images.</b>
+									</p>
+									<hr class="major" />
+									<h3>Docker-compose definition</h3>
+									<p><i>flaskREST/docker-compose.yaml</i>: </p>
+									<pre><code>
+version: '3'
+services:
+  backend:
+    container_name: flaskbackend
+    image: flaskbackend:v2
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo:4.2.0
+    ports:
+      - 1048:27017
+</code></pre>
+									<h3>To start both services</h3>
+									<pre><code>
+docker-compose up -d 
+
+Terminal output:
+Creating mongo ... done
+Creating flaskbackend ... done
+</code></pre>
+									<p>After running the command, mongo image will be downloaded from the dockerhub, and both flaskbackend and mongo containers will be created.</p>
+									<p> The server is running on <i>http://localhost:5000</i>. Download (<a href="https://www.postman.com/">postman</a>) OR use command line tool (<a href="https://curl.haxx.se/">curl</a>) to execute the operations. The following <a href="https://www.taniarascia.com/making-api-requests-postman-curl/">link</a> has the instructions to execute CRUD in both postman and curl.</p>
+									<p><b>Download code: </b> <a href="https://github.com/chowdhury18/flaskREST"> Github </a></p> 
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+								</nav>
+
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto: arnab.chowdhury@aalto.fi">arnab.chowdhury@aalto.fi</a></li>
+										<li class="icon solid fa-phone">(+358) 442428984</li>
+										<li class="icon solid fa-home">Jamerantaival 11 L 235<br />
+										02150, ESPOO, Finland</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2020 Arnab Rahman Chowdhury</p>
+								</footer>
+
+						</div>
+					</div>
+
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<!--<script src="assets/js/jquery.includeHTML.min.js"></script>
+			https://github.com/louisho5/jQuery-Include-HTML-File-Plugin 
+			<script>
+				$(document).ready(function () {
+					$("#sidebar-temp").load("sidebar.html");
+					$("#header-temp").load("header.html");
+				});
+			</script>-->
+	</body>
+</html>
