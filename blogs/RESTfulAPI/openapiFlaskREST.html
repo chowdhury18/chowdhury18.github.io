@@ -46,147 +46,7 @@
 									<hr class="major" />
 									<h2>Getting started</h2>
 									<h3>Flask RESTful application</h3>
-									<p> The Flask RESTful application deals with course management system where students can execute CRUD operation to manage their courses. To successfully build the Flask RESTful application, please follow the blog, titled "FLASK AND MONGO" under RESTFUL API. The code can be downloaded from the following <a href="https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/"> link</a>. The api schema and paths definition is given below:
-									
-									<h4>Schema</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Attribute</th>
-													<th>Type</th>
-													<th>Condition</th>
-													<th>Values</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>code</td>
-													<td>string</td>
-													<td>required: true <br>
-														unique: true
-													</td>
-													<td>any valid string</td>
-												</tr>
-												<tr>
-													<td>name</td>
-													<td>string</td>
-													<td>required: true <br>
-														unique: true
-													</td>
-													<td>any valid string</td>
-												</tr>
-												<tr>
-													<td>description</td>
-													<td>string</td>
-													<td>--</td>
-													<td>any valid string</td>
-												</tr>
-												<tr>
-													<td>course_type</td>
-													<td>string</td>
-													<td>required: true </td>
-													<td>enum: ['compulsory', 'optional']</td>
-												</tr>
-												<tr>
-													<td>semester</td>
-													<td>string</td>
-													<td>required: true </td>
-													<td>enum: ['autumn', 'spring']</td>
-												</tr>
-												<tr>
-													<td>starting_date</td>
-													<td>datetime</td>
-													<td>required: true </td>
-													<td>datetime</td>
-												</tr>
-												<tr>
-													<td>ending_date</td>
-													<td>datetime</td>
-													<td>required: true </td>
-													<td>datetime</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<h4>Paths</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Request</th>
-													<th>Type</th>
-													<th>Route</th>
-													<th>Request Body</th>
-													<th>Response Body</th>
-													<th>Status code</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>CREATE</td>
-													<td>POST</td>
-													<td>/course</td>
-													<td>Course</td>
-													<td><i>Success:</i> { message: 'Course successfully created', id: <b>course_id</b> } <br>
-														<i>Error:</i> { message: <b>ERROR message</b>}
-													</td>
-													<td>201 <br>
-														500
-													</td>
-												</tr>
-												<tr>
-													<td>READ</td>
-													<td>GET</td>
-													<td>/course/{course_id}</td>
-													<td>--</td>
-													<td><i>Course:</i> Single database object { id: <b>id</b>, code: <b>code</b>, name: <b>name</b>, course_type: <b>course_type</b>, semester: <b>semester</b>, starting_date: <b>starting_date</b>, ending_date: <b>ending_date</b> } <br>
-														<i>Error:</i> { message: <b>ERROR message</b>}
-													</td>
-													<td>200 <br>
-														404
-													</td>
-												</tr>
-												<tr>
-													<td>READ</td>
-													<td>GET</td>
-													<td>/courses</td>
-													<td>course_type OR semester (*)</td>
-													<td><i>Courses:</i> Multiple database objects { id: <b>id</b>, code: <b>code</b>, name: <b>name</b>, course_type: <b>course_type</b>, semester: <b>semester</b>, starting_date: <b>starting_date</b>, ending_date: <b>ending_date</b> } <br>
-														<i>Error:</i> { message: <b>ERROR message</b>}
-													</td>
-													<td>200 <br>
-														404
-													</td>
-												</tr>
-												<tr>
-													<td>UPDATE</td>
-													<td>PUT</td>
-													<td>/course/{course_id}</td>
-													<td>Course</td>
-													<td><i>Success:</i> { message: 'Course successfully updated', id: <b>course_id</b> } <br>
-														<i>Error:</i> { message: <b>ERROR message</b>}
-													</td>
-													<td>200 <br>
-														500
-													</td>
-												</tr>
-												<tr>
-													<td>DELETE</td>
-													<td>DELETE</td>
-													<td>/course/{course_id}</td>
-													<td>--</td>
-													<td><i>Success:</i> { message: 'Course successfully deleted', id: <b>course_id</b> } <br>
-														<i>Error:</i> { message: <b>ERROR message</b>}
-													</td>
-													<td>200 <br>
-														404
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<p><b>NOTE:</b> (*) For GET requests, use the query string to pass the parameters.</p>
+									<p> The Flask RESTful application deals with course management system where students can execute CRUD operation to manage their courses. To successfully build the Flask RESTful application, please follow the blog, titled "FLASK AND MONGO" under RESTFUL API. The code can be downloaded from the following <a href="https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/"> link</a>. To check out the <a href="https://github.com/chowdhury18/REST-API/blob/master/Schemas/openapi-schema.md">schemas</a> and the <a href="https://github.com/chowdhury18/REST-API/blob/master/Paths/openapi-path.md">path</a> definitions, please click the links.</p>
 
 									<h3>Openapi 3.0 specification</h3>
 									<p>The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. For more details, follow the <a href="https://swagger.io/specification/#:~:text=Introduction,or%20through%20network%20traffic%20inspection.">link</a>.</p>
@@ -202,223 +62,82 @@ flaskREST
 	|- models.py
 </code></pre>
 									<h3>Openapi definition</h3>
-									<p><i>flaskREST/swagger/openapi.yaml</i>: </p>
+									<p>The basic structure of openapi specification 3.0.0 :</p>
 									<pre><code>
-openapi: 3.0.0
-info:
-  title: Course Management System
-  version: 1.0.0
+openapi: 3.0.0 REQUIRED
+
+info: REQUIRED
+	title: REQUIRED
+	version: REQUIRED
+	description:
+	termsOfService:
+	contact:
+	license:
+	version:
+
 servers:
-  - url: 'http://127.0.0.1:5000'
-    description: flask REST API
-paths:
-  /course:
-    post:
-      tags:
-        - Create course
-      description: Create a new course
-      operationId: create_course
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Course'
-      responses:
-        '201':
-          description: Course successfully created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Success'
-        '500':
-          description: Error:INTERNAL SERVER ERROR
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+	- url: REQUIRED
+		description:
+		variables:
 
-  /courses:
-    parameters:
-    - name: course_type
-      in: query
-      schema:
-        type: string
-        enum:
-          - compulsory
-          - optional
-      required: false
-    - name: semester
-      in: query
-      schema:
-        type: string
-        enum:
-          - autumn
-          - spring
-      required: false
-    get:
-      tags:
-        - Get courses
-      description: Get courses by course type or semester wise
-      operationId: get_course_by_course_type_or_semester
-      responses:
-        '200':
-          description: Successfully get courses by course type or semester wise
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Courses'
-        '404':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+paths: REQUIRED
+	/&lt;endpoint&gt;:
+		get/post/put/delete/..:
+		tags:
+		summary:
+		description:
+		operationId:
+		externalDocs:
+			description:
+			url: REQUIRED
+		parameters:
+			name: REQUIRED
+			in: REQUIRED
+			required: REQUIRED
+			description:
+			deprecated:
+			allowEmptyValue:
+			.
+			.
+		responses: REQUIRED
+			&lt;HTTP Status Code&gt;:
+				description: REQUIRED
+				headers:
+				content:
+					&lt;content-type&gt;:
+						schema:
+						example:
+						examples:
+						encoding:
+				links:
+		deprecated:
+		security:
+		servers:
+		requestBody:
+			description:
+			contact: REQUIRED
+				&lt;content-type&gt;:
+					schema:
+					example:
+					examples:
+					encoding:
+			required:
+		callbacks:
 
-
-  /course/{course_id}:
-    parameters:
-    - name: course_id
-      in: path
-      required: true
-      schema:
-        type: string
-    get:
-      tags:
-        - Get course by ID
-      description: Get course Info
-      operationId: get_course
-      responses:
-        '200':
-          description: A json course object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '404':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    put:
-      tags:
-        - Update course
-      description: Update a course
-      operationId: update_course
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Course'
-      responses:
-        '200':
-          description: Course successfully updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Success'
-
-        '500':
-          description: Error:INTERNAL SERVER ERROR
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      tags:
-        - Delete course
-      description: Delete a course
-      operationId: delete_course
-      responses:
-        '204':
-          description: Course successfully deleted
-        '404':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-
+# To reference a definition, "$ref" keyword is used and the definitions are under the compnents tag
 components:
-  schemas:
-    Course:
-      description: A representation of a course
-      type: object
-      required:
-        - code
-        - name
-        - course_type
-        - semester
-        - starting_date
-        - ending_date
-      properties:
-        id:
-          type: string
-          description: Unique course id
-          example: '5f59c0952cbedf77370ca22d'
-          readOnly: true
-        code:
-          type: string
-          description: Unique course code
-          example: 'CS-E4100'
-          maxLength: 10
-          uniqueItems: true
-        name:
-          type: string
-          description: Unique course name
-          example: 'CSS'
-          maxLength: 20
-          uniqueItems: true
-        description:
-          type: string
-          description: Short description of course
-          example: 'Cloud and software course'
-          maxLength: 30
-        course_type:
-          type: string
-          description: compulsory or optional
-          enum:
-            - compulsory
-            - optional
-          example: 'compulsory'
-        semester:
-          type: string
-          description: autumn or spring
-          enum:
-            - autumn
-            - spring
-          example: 'autumn'
-        starting_date:
-          type: string
-          description: starting date of the course
-          example: '2020-09-07T15:49:51.230+02:00'
-        ending_date:
-          type: string
-          description: ending date of the course
-          example: '2020-12-07T15:49:51.230+02:00'
-    Courses:
-      description: list of courses
-      type: array
-      items:
-        $ref: '#/components/schemas/Course'
-    Success:
-      description: successfully created, updated or deleted
-      type: object
-      properties:
-        message:
-          type: string
-        id:
-          type: string
-    Error:
-      description: unexpected error
-      type: object
-      properties:
-        message:
-          type: string
+	schemas:
+	responses:
+	parameters:
+	examples:
+	requestBody:
+	headers:
+	securitySchemes:
+	links:
+	callbacks:
+
 </code></pre>
+To get familiar with each and every items of Openapi Specification, please visit the following <a href="https://idratherbewriting.com/learnapidoc/openapi_tutorial.html">web link</a>.
 									
 									<h3>To start both services</h3>
 									<pre><code>
@@ -437,8 +156,8 @@ Terminal output:
 Swagger UI:
 docker run --name swaggerUI --rm -p 8080:8080 -e SWAGGER_JSON=/foo/openapi.yaml -v $PWD/swagger:/foo swaggerapi/swagger-ui
 </code></pre>
-									<p> The application server is running on <i>http://localhost:5000</i> and the Swagger UI is running on <i>http://localhost:8080</i>. The browser output looks like this:</p>
-									<span class="image main"><img src="../../images/openapi_output.jpg" alt="" /></span>
+									<p> The application server is running on <i>http://localhost:5000</i> and the Swagger UI is running on <i>http://localhost:8080</i>. An example of browser output looks like this:</p>
+									<span class="image main"><img src="../../images/openapi_output.PNG" alt="" /></span>
 									<p><b>Download code: </b> <a href="https://github.com/chowdhury18/REST-API"> Github </a></p> 
 								</section>
 
