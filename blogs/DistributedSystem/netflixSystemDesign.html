@@ -75,13 +75,13 @@
                                 with their Internet service provider (ISP). Point of Presence (PoP) is considered as <b>Level 1</b> in Internet Infrastructure. Same ISP networks connect themselves through fiber optics cables where users who are using
                                 the same ISP can communicate among themselves. It is called connecting Points of Presence and is considered as <b>Level 2</b>.
                             </li>
-                            <img src="../../images/blog/SystemDesign/PoP.jpg" alt="" width="100%" height="100%" />
+                            <img src="../../images/blog/SystemDesign/PoP.svg" alt="" width="100%" height="100%" />
                             <li><b>Internet Exchange Points:</b> An Internet exchange point (IX or IXP) is the physical infrastructure through which Internet service providers (ISPs) and content delivery networks (CDNs) exchange Internet traffic between their
                                 networks. In these points, the fiber optic cables of different ISPs connect together to pass the traffic from the user of one ISP to the user of another ISP. This physical infrastructure is considered as <b>Level 3</b>                                in Internet Infrastructure. ISPs interconnect with each other at exchange points to allow their customers to communicate. More recently, exchange point customers are often content providers, who peer with ISPs to get their
                                 content to the ISPs’ customers. Content providers also connect to exchange points to exchange traffic with each other. To connect the whole world, IXPs exchange traffic through fiber optic cables which go under the deep
                                 sea to different countries all over the world. The global internet is referred to as <b>Level 4</b> in Internet Infrastructure.
                             </li>
-                            <img src="../../images/blog/SystemDesign/IXP.jpg" alt="" width="100%" height="100%" />
+                            <img src="../../images/blog/SystemDesign/IXP.svg" alt="" width="100%" height="100%" />
                         </ul>
                         <h3>Control Plane</h3>
                         <ul>
@@ -98,7 +98,7 @@
                             <li><b>Steering Service:</b> Determines the optimal CDN URLs for the requested content.</li>
                         </ul>
                         <h3>Design Overview</h3>
-                        <img src="../../images/blog/SystemDesign/netflix-system-design.jpg" alt="" width="100%" height="100%" />
+                        <img src="../../images/blog/SystemDesign/netflix-system-design.svg" alt="" width="100%" height="100%" />
                         <ol>
                             <li>The content creator uploads the video contents to the control plane. Content upload service handles the operation.</li>
                             <li>The uploaded video contents are distributed to the OCAs which are geographically distributed for better-optimized content delivery to the end-users.</li>
