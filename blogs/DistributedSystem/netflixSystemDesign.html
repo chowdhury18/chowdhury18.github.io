@@ -5,92 +5,166 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Arnab Rahman Chowdhury</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../../assets/css/main.css" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+    <title>Arnab Rahman Chowdhury</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+</head>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<body class="is-preload">
 
-							<!-- Header -->
-								<header id="header">
-									<ul class="icons">
-										<li><a href="https://www.facebook.com/a.r.chowdhury.18/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.instagram.com/chowdhury_arnab_rahman/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://linkedin.com/in/archowdhury18" class="icon brands fa fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://github.com/chowdhury18" class="icon brands fab fa-github-square"><span class="label">Github</span></a></li>
-									</ul>
-								</header>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-							<!-- Banner -->
-								<section>
-									<header class="main">
-										<h1>Netflix System Design</h1>
-									</header>
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
 
-									<span class="image main"><img src="../../images/netflix.png" alt="" /></span>
+                <!-- Header -->
+                <header id="header">
+                    <ul class="icons">
+                        <li><a href="https://www.facebook.com/a.r.chowdhury.18/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/chowdhury_arnab_rahman/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://linkedin.com/in/archowdhury18" class="icon brands fa fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        <li><a href="https://github.com/chowdhury18" class="icon brands fab fa-github-square"><span class="label">Github</span></a></li>
+                    </ul>
+                </header>
 
-									<hr class="major" />
-									<h2>Objective</h2>
-									<p>
-										In this article, the system design of the most popular video streaming platform, Netflix will be discussed. (to be continued)
-									</p>
-								</section>
+                <!-- Banner -->
+                <section>
+                    <header class="main">
+                        <h1>Netflix System Design</h1>
+                    </header>
 
-						</div>
-					</div>
+                    <span class="image main"><img src="../../images/blog/SystemDesign/netflix.png" alt="" /></span>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="../../index.html">Homepage</a></li>
-									</ul>
-								</nav>
+                    <hr class="major" />
+                    <h2>Objective</h2>
+                    <p>
+                        In this article, the system design of the most popular video streaming platform, Netflix will be discussed.
+                    </p>
+                    <hr class="major" />
+                    <h2>System Design Overview</h2>
+                    <p>There are two types of users of the system. The content creator and the viewer. The overall system can be derived into the following components.</p>
+                    <h3>Content Delivery Network (CDN)</h3>
+                    <p>
+                        A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content. CDN inproves the loading time of frequently visiting websites, reduces bandwidth costs, increases
+                        content availability and redundancy, and improves the website security. <br/><br/> Netflix uses customized CDNs which are known as <a href="https://openconnect.netflix.com/en/"><b>Open Connect</b></a>. There
+                        are two main components of Open Connect.
+                        <ol>
+                            <li>Embedded Open Connect Appliances (OCAs)</li>
+                            <li>Settlement-free interconnection (SFI)</li>
+                        </ol>
+
+                        <b>Embedded Open Connect Appliances (OCAs):</b>
+                        <ul>
+                            <li>Embedded in <b>Internet Service Provider (ISP)</b> network.</li>
+                            <li>Provides the same capabilities and services as the OCAs that Netflix uses in their own data centers (60+).</li>
+                        </ul>
+                        <b>Settlement-free interconnection (SFI):</b>
+                        <ul>
+                            <li>Connect via direct <b>Private Network Interconnect (PNI)</b> or <b>Internet Exchange Point (IXP)</b>-based SFI peering to Netflix Open Connect Appliances. An Internet exchange point (IX or IXP) is the physical infrastructure
+                                through which Internet service providers (ISPs) and content delivery networks (CDNs) exchange Internet traffic between their networks.</li>
+                        </ul>
+                        <b>NOTE:</b> <br/>
+                        <b>Level of Internet Infrastructure</b>
+                        <ul>
+                            <li><b>Point of Presence:</b> A point of presence (PoP) is an interface point between communicating entities. A common example is an Internet point of presence, the local access point that allows users to connect to the Internet
+                                with their Internet service provider (ISP). Point of Presence (PoP) is considered as <b>Level 1</b> in Internet Infrastructure. Same ISP networks connect themselves through fiber optics cables where users who are using
+                                the same ISP can communicate among themselves. It is called connecting Points of Presence and is considered as <b>Level 2</b>.
+                            </li>
+                            <img src="../../images/blog/SystemDesign/PoP.jpg" alt="" width="100%" height="100%" />
+                            <li><b>Internet Exchange Points:</b> An Internet exchange point (IX or IXP) is the physical infrastructure through which Internet service providers (ISPs) and content delivery networks (CDNs) exchange Internet traffic between their
+                                networks. In these points, the fiber optic cables of different ISPs connect together to pass the traffic from the user of one ISP to the user of another ISP. This physical infrastructure is considered as <b>Level 3</b>                                in Internet Infrastructure. ISPs interconnect with each other at exchange points to allow their customers to communicate. More recently, exchange point customers are often content providers, who peer with ISPs to get their
+                                content to the ISPs’ customers. Content providers also connect to exchange points to exchange traffic with each other. To connect the whole world, IXPs exchange traffic through fiber optic cables which go under the deep
+                                sea to different countries all over the world. The global internet is referred to as <b>Level 4</b> in Internet Infrastructure.
+                            </li>
+                            <img src="../../images/blog/SystemDesign/IXP.jpg" alt="" width="100%" height="100%" />
+                        </ul>
+                        <h3>Control Plane</h3>
+                        <ul>
+                            <li>Responsible for uploading new content that will be distributed over the OCAs.</li>
+                            <li>Responsible for file and data storage, and sharding.</li>
+                            <li><b>OCAs health check:</b> Periodic health check of OCA services, learn about playback experience, and responsible for optimization.</li>
+                            <li><b>Content upload service:</b> Responsible for uploading content from the content provider and distribute the content to OCAs. Store the metadata information of uploaded video contents in data storage.</li>
+                        </ul>
+                        <h3>Data Plane</h3>
+                        <ul>
+                            <li>End-user interacts with this plane while playing the video content.</li>
+                            <li>It receives the end-user request for video content and returns the URLs of the nearest CDNs from where the requested content can be delivered.</li>
+                            <li><b>Playback Service:</b> Determines the specific files from the user request.</li>
+                            <li><b>Steering Service:</b> Determines the optimal CDN URLs for the requested content.</li>
+                        </ul>
+                        <h3>Design Overview</h3>
+                        <img src="../../images/blog/SystemDesign/netflix-system-design.jpg" alt="" width="100%" height="100%" />
+                        <ol>
+                            <li>The content creator uploads the video contents to the control plane. Content upload service handles the operation.</li>
+                            <li>The uploaded video contents are distributed to the OCAs which are geographically distributed for better-optimized content delivery to the end-users.</li>
+                            <li>The OCAs report the health status of the uploaded contents, information regarding stored contents, the optimal BGP routes, and so on.</li>
+                            <li>The video contents are stored in persistent data storage (e.g., Amazon S3) and the metadata regarding the video contents are stored in the database (e.g., Amazon Dynamo).</li>
+                            <li>The user requests for video content by playing the video which is sent to the playback service in the data plane.</li>
+                            <li>The Playback service determines the requested video content and delegates the operation to the steering service.</li>
+                            <li>The Steering service looks for the optimal OCAs from where the content can be served and generates the URLs which is provided to the user.</li>
+                            <li>The user requests the OCA through the URL for the video content that they are searching for and the OCA serves the requested contents to the user which gets rendered to the user device.</li>
+                        </ol>
+
+                        TO BE CONTINUED ...
+                    </p>
+                    <hr class="major" />
+                    <h2>References</h2>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=kHA-Mtkuzno">Levels of Internet Infrastructure</a></li>
+                        <li><a href="https://techtakshila.com/system-design-interview/chapter-2/">Design Media Streaming Platform - Netflix</a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li><a href="../../index.html">Homepage</a></li>
+                    </ul>
+                </nav>
 
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto: arnabrahman008@gmail.com">arnabrahman008@gmail.com</a></li>
-										<li class="icon solid fa-phone">(+358) 442428984</li>
-										<li class="icon solid fa-home">Jamerantaival 11 L 235<br />
-										02150, ESPOO, Finland</li>
-									</ul>
-								</section>
+                <!-- Section -->
+                <section>
+                    <header class="major">
+                        <h2>Get in touch</h2>
+                    </header>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope"><a href="mailto: arnabrahman008@gmail.com">arnabrahman008@gmail.com</a></li>
+                        <li class="icon solid fa-phone">(+358) 442428984</li>
+                        <li class="icon solid fa-home">Jamerantaival 11 L 235<br /> 02150, ESPOO, Finland</li>
+                    </ul>
+                </section>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; 2020 Arnab Rahman Chowdhury</p>
-								</footer>
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">&copy; 2020 Arnab Rahman Chowdhury</p>
+                </footer>
 
-						</div>
-					</div>
+            </div>
+        </div>
 
 
-		<!-- Scripts -->
-			<script src="../../assets/js/jquery.min.js"></script>
-			<script src="../../assets/js/browser.min.js"></script>
-			<script src="../../assets/js/breakpoints.min.js"></script>
-			<script src="../../assets/js/util.js"></script>
-			<script src="../../assets/js/main.js"></script>
-			<!--<script src="assets/js/jquery.includeHTML.min.js"></script>
+        <!-- Scripts -->
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/browser.min.js"></script>
+        <script src="../../assets/js/breakpoints.min.js"></script>
+        <script src="../../assets/js/util.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        <!--<script src="assets/js/jquery.includeHTML.min.js"></script>
 			https://github.com/louisho5/jQuery-Include-HTML-File-Plugin 
 			<script>
 				$(document).ready(function () {
@@ -98,5 +172,6 @@
 					$("#header-temp").load("header.html");
 				});
 			</script>-->
-	</body>
+</body>
+
 </html>
