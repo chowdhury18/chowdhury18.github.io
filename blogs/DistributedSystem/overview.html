@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Arnab Rahman Chowdhury</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    <ul class="icons">
+                        <li><a href="https://www.facebook.com/a.r.chowdhury.18/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/chowdhury_arnab_rahman/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://linkedin.com/in/archowdhury18" class="icon brands fa fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        <li><a href="https://github.com/chowdhury18" class="icon brands fab fa-github-square"><span class="label">Github</span></a></li>
+                    </ul>
+                </header>
+
+                <!-- Banner -->
+                <section>
+                    <header class="main">
+                        <h1>Distributed System Overview</h1>
+                    </header>
+
+                    <span class="image main"><img src="../../images/blog/SystemDesign/DistributedsystemOverview.jpeg" alt="" /></span>
+
+                    <hr class="major" />
+                    <h2 id="contents">Contents</h2>
+                    <p>
+                        <ol>
+                            <li><a href="#intro">Introduction</a></li>
+                        </ol>
+                    </p>
+                    <hr class="major" />
+                    <h2 id="intro">Introduction || <a href="#contents">&#8593;</a></h2>
+                    <p>
+                        A distributed system (DS) is a system whose components are located on different networked computers, which communicate and coordinate their actions by passing messages to one another. The components interact with one another in order to achieve a common
+                        goal. Throughout the context, distributed system will be referred to as DS. The reason behind tech giants prefer DS instead of monolithic system:
+                        <ul>
+                            <li>Parallelism</li>
+                            <li>Fault Tolerance
+                                <dd>- Availability</dd>
+                                <dd>- Recoverability</dd>
+                                <dd>- Non-volatile Storage</dd>
+                                <dd>- Replication</dd>
+                            </li>
+                            <li>Geographical location</li>
+                            <li>Security and Isolation</li>
+                        </ul>
+                        Basic challenges of DS:
+                        <ul>
+                            <li>Concurrency and Consistency
+                                <dd>- Strong/Weak Consistency</dd>
+                            </li>
+                            <li>Partial failure</li>
+                            <li>Performance
+                                <dd>- Scalability</dd>
+                            </li>
+                        </ul>
+                        DS Infrastructure used by Applications:
+                        <ul>
+                            <li>Storage</li>
+                            <li>Communication</li>
+                            <li>Computation (e.g., Map-Reduce)</li>
+                        </ul>
+                        <h4>MapReduce</h4>
+                        MapReduce is a programming model and an associated implementation for processing and generating big data sets with a parallel, distributed algorithm on a cluster.
+                        <img src="../../images/blog/SystemDesign/MapReduce.svg" alt=""></img>
+                        <br/><br/>
+                        <h4>RPC and Thread</h4>
+                        <b>Thread: </b> A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system.[1] The implementation of threads and
+                        processes differs between operating systems, but in most cases a thread is a component of a process. Multiple threads can exist within one process, executing concurrently and sharing resources such as memory, while different processes
+                        do not share these resources.
+                        <img src="../../images/blog/SystemDesign/Thread.svg" alt=""></img>
+                    </p>
+                    <hr class="major" />
+                    <h2>References</h2>
+                    <ul>
+                        <li><a href="https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB">Distributed System - MIT (Spring 2020) - Robert Tappan Morris (Author) </a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li><a href="../../index.html">Homepage</a></li>
+                    </ul>
+                </nav>
+
+
+                <!-- Section -->
+                <section>
+                    <header class="major">
+                        <h2>Get in touch</h2>
+                    </header>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope"><a href="mailto: arnabrahman008@gmail.com">arnabrahman008@gmail.com</a></li>
+                        <li class="icon solid fa-phone">(+358) 442428984</li>
+                        <li class="icon solid fa-home">Jamerantaival 11 L 235<br /> 02150, ESPOO, Finland</li>
+                    </ul>
+                </section>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">&copy; 2020 Arnab Rahman Chowdhury</p>
+                </footer>
+
+            </div>
+        </div>
+
+
+        <!-- Scripts -->
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/browser.min.js"></script>
+        <script src="../../assets/js/breakpoints.min.js"></script>
+        <script src="../../assets/js/util.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        <!--<script src="assets/js/jquery.includeHTML.min.js"></script>
+			https://github.com/louisho5/jQuery-Include-HTML-File-Plugin 
+			<script>
+				$(document).ready(function () {
+					$("#sidebar-temp").load("sidebar.html");
+					$("#header-temp").load("header.html");
+				});
+			</script>-->
+</body>
+
+</html>
