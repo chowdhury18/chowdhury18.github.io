@@ -8,6 +8,7 @@ num1: number
 name: string
 isString: boolean
 ```
+
 - Object:
 ```js
 // optional object type declaration
@@ -19,10 +20,12 @@ const person: {
     age: 25
 }
 ```
+
 - Adding (+) sign to a variable converts the variable into number:
 ```js
 let result = +var1 + +var2
 ```
+
 - Literal type
 ```js
 type combinable = number | string; // type alias
@@ -38,6 +41,7 @@ function combine(
      }
  }
 ```
+
 - Function type
 ```js
 function add(n1: number, n2: number): number {
@@ -54,6 +58,7 @@ func = add;
 
 print(print(func(10,20)));
 ```
+
 - tsc --int
     - Initialize the typescript configuration (tsconfig.json file will be created)
 - include:
